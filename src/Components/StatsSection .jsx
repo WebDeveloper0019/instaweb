@@ -28,10 +28,10 @@ const floatingAnimation = {
     transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
   },
 };
-
+// bg-gradient-to-b from-[#211C84] to-[#4338CA]
 const StatsSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[#211C84] to-[#4338CA] text-white text-center pt-12 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center items-center  text-white text-center pt-12 pb-20 overflow-hidden">
       
       {/* Floating Background Elements */}
       <motion.div
@@ -48,10 +48,10 @@ const StatsSection = () => {
       {/* Title & Description */}
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
         <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-500">
-          Why Choose FansFlares?
+          Elevate Your Social Presence
         </h2>
         <p className="text-gray-300 mt-2 max-w-3xl mx-auto">
-          Grow your brand with real engagement—secure, fast, and effective.
+          Unlock the full potential of your online brand with our seamless and reliable engagement solutions.
         </p>
       </motion.div>
 

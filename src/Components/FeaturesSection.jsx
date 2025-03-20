@@ -26,10 +26,10 @@ const floatingShapess = {
     transition: { duration: 15, repeat: Infinity, ease: "easeInOut" },
   },
 };
-
+// bg-gradient-to-br from-[#211C84] to-[#4338CA]
 const FeaturesSection = () => {
   return (
-    <section className="bg-gradient-to-br from-[#211C84] to-[#4338CA] text-center py-16 min-h-screen flex flex-col justify-center relative overflow-hidden text-white">
+    <section className=" text-center py-16 min-h-screen flex flex-col justify-center relative overflow-hidden text-white">
       <h2 className="text-5xl font-extrabold mb-8 font-sans bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400 drop-shadow-lg">
         WHY CHOOSE US?
       </h2>

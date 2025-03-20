@@ -35,9 +35,9 @@ const FAQSection = () => {
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  // bg-[#0D0D0D]
   return (
-    <section className="bg-[#0D0D0D] text-white py-14 px-6 lg:px-16 relative">
+    <section className=" text-white py-14 px-6 lg:px-16 relative">
       {/* Glowing Background */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] h-[300px] bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500 blur-[100px] opacity-30"></div>
 

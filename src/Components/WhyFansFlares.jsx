@@ -1,74 +1,46 @@
 import React from "react";
-import { FaShieldAlt, FaClock, FaUsers, FaStar, FaBolt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { FaHeart, FaStar, FaRocket, FaLightbulb } from "react-icons/fa";
 
-const features = [
-  {
-    icon: <FaShieldAlt className="text-yellow-400 text-5xl mb-4" />,
-    title: "Safe & Secure",
-    description: "We prioritize security, ensuring safe transactions and account protection.",
-  },
-  {
-    icon: <FaClock className="text-blue-400 text-5xl mb-4" />,
-    title: "Fast Delivery",
-    description: "Your orders are processed instantly with our lightning-fast system.",
-  },
-  {
-    icon: <FaUsers className="text-purple-400 text-5xl mb-4" />,
-    title: "Trusted by Thousands",
-    description: "Thousands of influencers and brands trust us to grow their social presence.",
-  },
-  {
-    icon: <FaStar className="text-pink-400 text-5xl mb-4" />,
-    title: "Premium Quality",
-    description: "We deliver only the highest quality engagement with real users.",
-  },
-  {
-    icon: <FaBolt className="text-green-400 text-5xl mb-4" />,
-    title: "24/7 Support",
-    description: "Our expert team is available 24/7 to assist you whenever needed.",
-  },
-];
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
-const WhyFansFlares = () => {
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+};
+
+const StatsSection = () => {
   return (
-    <section className="bg-[#0D0D0D] text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2 
-          className="text-4xl font-bold mb-6"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Why FansFlares?
-        </motion.h2>
-        <motion.p 
-          className="text-gray-300 mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Discover why FansFlares is the #1 choice for boosting your social media presence!
-        </motion.p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+    <section className="relative min-h-screen flex flex-col justify-center items-center text-white text-center pt-12 pb-20 overflow-hidden">
+      {/* Features Section */}
+      <motion.div className="mt-16 max-w-7xl mx-auto text-center" initial="hidden" whileInView="visible" variants={fadeInUp}>
+        <h3 className="text-5xl font-extrabold text-gray-200">Why FansFlares?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
+          {[
+            { icon: FaHeart, title: "Real Engagement", desc: "Get high-quality interactions from real users." },
+            { icon: FaStar, title: "Premium Quality", desc: "We offer the best-in-class services for your growth." },
+            { icon: FaRocket, title: "Innovative Growth Tactics", desc: "Utilize cutting-edge strategies for superior performance." },
+            { icon: FaLightbulb, title: "Strategic Insights", desc: "Maximize results with data-driven techniques." },
+          ].map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-gray-900 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="p-10 bg-gray-800 rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300"
+              variants={fadeInUp}
             >
-              {feature.icon}
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <feature.icon className="text-6xl text-blue-400 mb-6 mx-auto" />
+              <h4 className="text-3xl font-bold text-white">{feature.title}</h4>
+              <p className="text-xl text-gray-300 mt-4">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
 
-export default WhyFansFlares;
+export default StatsSection;

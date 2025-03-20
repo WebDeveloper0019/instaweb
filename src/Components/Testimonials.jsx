@@ -41,9 +41,9 @@ const Testimonials = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
+  // bg-gradient-to-br from-[#211C84] to-[#4338CA]
   return (
-    <section className="bg-gradient-to-br from-[#211C84] to-[#4338CA] text-white py-20 px-6 lg:px-16 relative">
+    <section className=" text-white py-20 px-6 lg:px-16 relative">
       {/* Header Section */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <motion.h2 
