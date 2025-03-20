@@ -8,7 +8,7 @@ const HeaderNav = () => {
   const [premiumDropdownOpen, setPremiumDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-[#121212] text-white py-4 px-6 lg:px-16 flex justify-between items-center relative border-b border-gray-700">
+    <nav className="bg-transparent text-white py-4 pt-12 px-6 lg:px-16 flex justify-between items-center absolute z-[100] w-[100%]">
       {/* Logo */}
       <Link to="/" className="flex items-center">
         <img
@@ -19,7 +19,7 @@ const HeaderNav = () => {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex space-x-6 items-center">
+      <div className="hidden nav-font-text lg:flex space-x-6 items-center">
         {["Likes", "Views", "Followers"].map((item, index) => (
           <Link key={index} to={`/buy-instagram-${item.toLowerCase()}`} className="hover:text-gray-400 transition">
             {item}
@@ -50,18 +50,18 @@ const HeaderNav = () => {
       </div>
 
       {/* Login Button */}
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex nav-font-text">
         <Link to="/auth" className="hover:text-gray-400 transition">Log in</Link>
       </div>
 
       {/* Mobile Menu Button */}
-      <button className="lg:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
+      <button className="lg:hidden btnn text-white" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-[#0D0D0D] text-white flex flex-col items-center py-4 space-y-4 lg:hidden border-t border-gray-700">
+        <div className="absolute nav-font-text top-16 left-0 w-full bg-[#0D0D0D] text-white flex flex-col items-center py-4 space-y-4 lg:hidden border-t border-gray-700">
           {["Likes", "Views", "Followers"].map((item, index) => (
             <Link key={index} to={`/buy-instagram-${item.toLowerCase()}`} className="hover:text-gray-400" onClick={() => setMenuOpen(false)}>
               {item}
@@ -99,13 +99,13 @@ const HeaderNav = () => {
 
 // Dropdown Menu Component
 const DropdownMenu = ({ title, isOpen, setIsOpen, links, mobile }) => (
-  <div className="relative">
-    <button className="flex items-center hover:text-gray-400 transition" onClick={() => setIsOpen(!isOpen)}>
+  <div className="relative nav-font-text">
+    <button className="flex items-center btnn hover:text-gray-400 transition" onClick={() => setIsOpen(!isOpen)}>
       {title}
       <ChevronDown size={18} className={`ml-1 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
     </button>
 
-    <div className={`absolute left-0 mt-2 bg-[#0D0D0D] border border-gray-700 rounded-md shadow-lg flex flex-col w-48 z-10 transition-all duration-300 ease-in-out transform origin-top ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-90 invisible"}`}>
+    <div className={`absolute left-0 mt-2 nav-font-text bg-[#0D0D0D] border border-gray-700 rounded-md shadow-lg flex flex-col w-48 z-10 transition-all duration-300 ease-in-out transform origin-top ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-90 invisible"}`}>
       {links.map((link, index) => (
         <Link key={index} to={link.path} className="px-4 py-2 hover:bg-gray-800 transition" onClick={() => setIsOpen(false)}>
           {link.name}

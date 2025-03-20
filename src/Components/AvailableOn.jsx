@@ -26,9 +26,11 @@ const services = [
   },
 ];
 
+// bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A]
+
 const AvailableOn = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] text-white py-24 px-6 lg:px-16 flex flex-col items-center">
+    <section className="relative  text-white bg-gradient-to-b from-[#211C84] to-[#372EB0] py-24 px-6 lg:px-16 flex flex-col items-center">
       {/* Animated Background Overlay */}
       <motion.div 
         className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-500 to-pink-500 opacity-25 blur-[180px]"

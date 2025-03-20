@@ -3,107 +3,112 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { FaHeart, FaPlay, FaUser, FaSync, FaEye } from "react-icons/fa";
 
-// Floating circles animation variants
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+};
+
+const buttonHover = {
+  hover: {
+    scale: 1.1,
+    boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.4)",
+    transition: { type: "spring", stiffness: 250 },
+  },
+};
+
 const floatingAnimation = {
   animate: {
     y: [0, 15, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
   },
 };
 
 const StatsSection = () => {
   return (
-    <section className="relative bg-gray-100 text-center py-16 overflow-hidden">
-      {/* Curved Background Effect */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-[#4E54C8] to-[#1A1A40] rounded-b-[50%]"></div>
-
-      {/* Floating Circles */}
+    <section className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-[#211C84] to-[#4338CA] text-white text-center pt-12 pb-20 overflow-hidden">
+      
+      {/* Floating Background Elements */}
       <motion.div
-        className="absolute top-20 left-16 w-16 h-16 bg-purple-300 rounded-full opacity-50"
+        className="absolute top-10 left-20 w-24 h-24 bg-purple-400 rounded-full opacity-30 blur-2xl"
         variants={floatingAnimation}
         animate="animate"
-      ></motion.div>
+      />
       <motion.div
-        className="absolute top-1/3 right-20 w-12 h-12 bg-blue-300 rounded-full opacity-50"
+        className="absolute bottom-10 right-16 w-20 h-20 bg-blue-400 rounded-full opacity-30 blur-2xl"
         variants={floatingAnimation}
         animate="animate"
-      ></motion.div>
-      <motion.div
-        className="absolute bottom-20 left-32 w-14 h-14 bg-green-300 rounded-full opacity-50"
-        variants={floatingAnimation}
-        animate="animate"
-      ></motion.div>
-      <motion.div
-        className="absolute bottom-32 right-40 w-10 h-10 bg-gray-400 rounded-full opacity-50"
-        variants={floatingAnimation}
-        animate="animate"
-      ></motion.div>
+      />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Stat Item 1 - 100% Real Users */}
-          <div className="relative bg-white p-8 rounded-full shadow-lg">
-            <h2 className="text-4xl font-extrabold text-blue-600 drop-shadow-md">
-              <CountUp end={100} duration={3} />%
-            </h2>
-            <p className="text-gray-600">Real & Active Users</p>
-          </div>
-
-          {/* Stat Item 2 - 2+ Billion Delivered */}
-          <div className="relative bg-white p-8 rounded-full shadow-lg">
-            <h2 className="text-4xl font-extrabold text-blue-600 drop-shadow-md">
-              <CountUp end={2000} duration={3} />M+
-            </h2>
-            <p className="text-gray-600">Likes, Views & Followers Delivered</p>
-          </div>
-
-          {/* Stat Item 3 - No Hassle */}
-          <div className="relative bg-white p-8 rounded-full shadow-lg">
-            <h2 className="text-4xl font-extrabold text-blue-600 drop-shadow-md">
-              <CountUp end={0} duration={3} />
-            </h2>
-            <p className="text-gray-600">Headaches or Hassle</p>
-          </div>
-
-          {/* Stat Item 4 - 24/7 Support */}
-          <div className="relative bg-white p-8 rounded-full shadow-lg">
-            <h2 className="text-4xl font-extrabold text-blue-600 drop-shadow-md">
-              <CountUp end={24} duration={3} />/7
-            </h2>
-            <p className="text-gray-600">Customer Support</p>
-          </div>
-        </div>
-
-        {/* Below Heading */}
-        <h3 className="mt-32 text-3xl font-bold text-gray-800">Available on FansFlares</h3>
-        <p className="text-gray-600 mt-2 max-w-3xl mx-auto">
-          Whether you're looking to grow your followers, boost likes, or increase views, FansFlares is your #1 option.
-          Premium results, without the price tag.
+      {/* Title & Description */}
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-500">
+          Why Choose FansFlares?
+        </h2>
+        <p className="text-gray-300 mt-2 max-w-3xl mx-auto">
+          Grow your brand with real engagement—secure, fast, and effective.
         </p>
+      </motion.div>
 
-        {/* Service Buttons */}
-        <div className="mt-20 flex flex-wrap justify-center gap-4">
-          <button className="flex items-center gap-3 px-6 py-3 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-all duration-300">
-            <FaHeart className="text-white" /> Likes
-          </button>
-          <button className="flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300">
-            <FaPlay className="text-white" /> Views
-          </button>
-          <button className="flex items-center gap-3 px-6 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition-all duration-300">
-            <FaUser className="text-white" /> Followers
-          </button>
-          <button className="flex items-center gap-3 px-6 py-3 bg-gray-600 text-white rounded-full shadow-lg hover:bg-gray-700 transition-all duration-300">
-            <FaSync className="text-white" /> Automatic Services
-          </button>
-          <button className="flex items-center gap-3 px-6 py-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300">
-            <FaEye className="text-white" /> Premium Services
-          </button>
+      {/* Stats Grid */}
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 mt-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
+        {[
+          { value: 100, label: "Real & Active Users", suffix: "%", color: "from-blue-500 to-purple-500" },
+          { value: 2000, label: "M+ Likes & Views Delivered", suffix: "M+", color: "from-green-400 to-teal-400" },
+          { value: 0, label: "Hassles or Risks", suffix: "", color: "from-red-400 to-orange-400" },
+          { value: 24, label: "Hours of Support", suffix: "/7", color: "from-yellow-400 to-orange-400" },
+        ].map((stat, index) => (
+          <motion.div
+            key={index}
+            className="bg-gradient-to-r p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+            variants={fadeInUp}
+            style={{ backgroundImage: `linear-gradient(135deg, ${stat.color})` }}
+          >
+            <h3 className="text-5xl font-bold text-white drop-shadow-lg">
+              <CountUp end={stat.value} duration={3} />{stat.suffix}
+            </h3>
+            <p className="mt-2 text-white font-medium">{stat.label}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Services Section */}
+      <motion.div className="mt-16" initial="hidden" whileInView="visible" variants={fadeInUp}>
+        <h3 className="text-3xl font-bold text-gray-200">Available Services</h3>
+
+        {/* Buttons */}
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {[
+            { icon: FaHeart, text: "Likes", color: "from-pink-500 to-red-500" },
+            { icon: FaPlay, text: "Views", color: "from-blue-500 to-cyan-500" },
+            { icon: FaUser, text: "Followers", color: "from-green-500 to-teal-500" },
+            { icon: FaSync, text: "Auto Services", color: "from-yellow-500 to-orange-500" },
+            { icon: FaEye, text: "Premium Services", color: "from-purple-500 to-indigo-500" },
+          ].map((service, index) => (
+            <motion.button
+              key={index}
+              className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r text-white rounded-full shadow-lg transition duration-300"
+              style={{ backgroundImage: `linear-gradient(135deg, ${service.color})` }}
+              whileHover="hover"
+              variants={buttonHover}
+            >
+              <service.icon className="text-white text-lg" />
+              {service.text}
+            </motion.button>
+          ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

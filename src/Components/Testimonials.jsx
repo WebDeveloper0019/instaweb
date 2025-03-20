@@ -35,19 +35,25 @@ const testimonials = [
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto-slide every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black text-white py-20 px-6 lg:px-16">
+    <section className="bg-gradient-to-br from-[#211C84] to-[#4338CA] text-white py-20 px-6 lg:px-16 relative">
       {/* Header Section */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2 className="text-3xl lg:text-5xl font-bold">What Our Clients Say</h2>
+        <motion.h2 
+          className="text-4xl lg:text-5xl font-bold" 
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          What Our Clients Say
+        </motion.h2>
         <p className="text-gray-300 mt-4">
           See how our services have helped people grow their social media presence!
         </p>
@@ -58,20 +64,23 @@ const Testimonials = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            className="bg-gray-800 p-8 rounded-2xl shadow-lg text-center flex flex-col items-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
+            className="bg-gray-800 p-10 rounded-3xl shadow-xl text-center flex flex-col items-center border border-gray-600"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.6 }}
           >
-            <img
+            <motion.img
               src={testimonials[index].avatar}
               alt={testimonials[index].name}
-              className="w-20 h-20 rounded-full border-4 border-pink-500 mb-4"
+              className="w-24 h-24 rounded-full border-4 border-pink-500 mb-4 shadow-lg"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
             />
-            <h3 className="text-xl font-semibold">{testimonials[index].name}</h3>
-            <p className="text-gray-300 mt-3">{testimonials[index].review}</p>
-            <div className="flex mt-4 text-yellow-400">
+            <h3 className="text-xl font-semibold text-pink-400">{testimonials[index].name}</h3>
+            <p className="text-gray-300 mt-3 italic text-lg">“{testimonials[index].review}”</p>
+            <div className="flex mt-4 text-yellow-400 text-lg">
               {Array.from({ length: testimonials[index].rating }).map((_, i) => (
                 <FaStar key={i} />
               ))}
@@ -80,48 +89,32 @@ const Testimonials = () => {
         </AnimatePresence>
 
         {/* Navigation Buttons */}
-        <button
-          onClick={() =>
-            setIndex((prevIndex) =>
-              prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-            )
-          }
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+        <motion.button
+          onClick={() => setIndex((prevIndex) => prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1)}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full hover:bg-gray-600 transition-all shadow-md"
+          whileHover={{ scale: 1.1 }}
         >
-          <FaChevronLeft size={20} />
-        </button>
-        <button
+          <FaChevronLeft size={24} />
+        </motion.button>
+        <motion.button
           onClick={() => setIndex((prevIndex) => (prevIndex + 1) % testimonials.length)}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full hover:bg-gray-600 transition-all shadow-md"
+          whileHover={{ scale: 1.1 }}
         >
-          <FaChevronRight size={20} />
-        </button>
+          <FaChevronRight size={24} />
+        </motion.button>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center mt-6 space-x-2">
+        <div className="flex justify-center mt-6 space-x-3">
           {testimonials.map((_, i) => (
-            <span
+            <motion.span
               key={i}
-              className={`h-3 w-3 rounded-full ${
-                i === index ? "bg-pink-500" : "bg-gray-500"
-              }`}
+              className={`h-4 w-4 rounded-full ${i === index ? "bg-pink-500" : "bg-gray-500"}`}
+              animate={{ scale: i === index ? 1.5 : 1 }}
+              transition={{ duration: 0.3 }}
             />
           ))}
         </div>
-      </div>
-
-      {/* Call to Action Section */}
-      <div className="text-center mt-12">
-        <h3 className="text-2xl font-semibold">Ready to Grow Your Social Media?</h3>
-        <p className="text-gray-400 mt-2">
-          Join thousands of satisfied customers and boost your engagement today!
-        </p>
-        <a
-          href="/signup"
-          className="mt-4 inline-block bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-pink-600 transition"
-        >
-          Get Started
-        </a>
       </div>
     </section>
   );

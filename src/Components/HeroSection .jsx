@@ -15,13 +15,13 @@ const floatingVariants = {
     },
   },
 };
-
 // Button Style for Floating Icons
 const floatingButtonStyle = "shadow-xl p-4 rounded-full text-white text-lg font-bold flex items-center space-x-2";
 
+// bg-gradient-to-br from-[#1A1A40] to-[#4E54C8]
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#1A1A40] to-[#4E54C8] text-white py-20 pb-40 px-6 lg:px-24 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+    <section className="relative  text-white  pt-48 px-6 lg:px-24 flex flex-col lg:flex-row items-center justify-between overflow-hidden">
       
       {/* Left Side: Text Content */}
       <div className="max-w-lg text-center lg:text-left animate-fadeIn">
@@ -29,12 +29,15 @@ const HeroSection = () => {
           Elevate Your Social Media
         </h1>
         <p className="mt-5 text-lg text-gray-400 leading-relaxed">
-          Get <strong>authentic</strong> likes, views, and followers instantly.  
-          Powered by AI. <strong>Safe, Fast, and Trusted</strong> by 100,000+ users.
-        </p>
+  Boost your presence with <strong>genuine likes, views, and followers</strong>.  
+  Our secure system delivers <strong>fast results</strong> while keeping your account safe.  
+  <strong>Trusted by 100,000+ users</strong>, we help you grow effortlessly.
+</p>
+
+
 
         {/* CTA Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row sm:space-x-4 items-center">
+        <div className="mt-8 btnn flex flex-col sm:flex-row sm:space-x-4 items-center">
           <Link
             to="/buy-instagram-likes"
             className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:scale-105 transition transform duration-300"
@@ -88,7 +91,7 @@ const HeroSection = () => {
           autoplay
           style={{
             width: "100%",
-            maxWidth: "450px",
+            maxWidth: "1000px",
             filter: "drop-shadow(0px 0px 25px rgba(120, 120, 255, 0.8))",
           }}
         />

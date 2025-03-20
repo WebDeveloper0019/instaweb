@@ -12,9 +12,8 @@ const App = () => {
     <BrowserRouter>
     <HeaderNav/>
     <Routes>
-      <Route />
+      <Route path="/" element={ <HomeLayout/>}/>
     </Routes>
-    <HomeLayout/>
     <FooterNav/>
     </BrowserRouter>
     </>

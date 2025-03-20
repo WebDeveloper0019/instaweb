@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaThumbsUp, FaClock, FaTruck, FaQuestionCircle } from "react-icons/fa";
+import { FaStar, FaRocket, FaShieldAlt, FaHeadset } from "react-icons/fa";
 
 const floatingShapes = {
   hidden: { opacity: 0 },
@@ -16,12 +16,27 @@ const floatingShapes = {
   },
 };
 
+const floatingShapess = {
+  hidden: { opacity: 0 },
+  animate: {
+    opacity: [1, 0.5, 1],
+    x: ["-80vw", "80vw", "-80vw"],
+    y: ["-80vh", "80vh", "-80vh"],
+    rotate: [0, 180, 360],
+    transition: { duration: 15, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
 const FeaturesSection = () => {
   return (
-    <section className="bg-gray-100 text-center py-16 min-h-screen flex flex-col justify-center relative overflow-hidden">
-      <h2 className="text-5xl font-extrabold text-gray-800 mb-8 font-sans">AND OTHER FEATURES...</h2>
+    <section className="bg-gradient-to-br from-[#211C84] to-[#4338CA] text-center py-16 min-h-screen flex flex-col justify-center relative overflow-hidden text-white">
+      <h2 className="text-5xl font-extrabold mb-8 font-sans bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400 drop-shadow-lg">
+        WHY CHOOSE US?
+      </h2>
 
       {/* Animated Background Shapes */}
+      <motion.div className="absolute top-10 left-10 w-24 h-24 bg-pink-400 opacity-50 blur-xl rounded-full" variants={floatingShapess} initial="hidden" animate="animate"></motion.div>
+      <motion.div className="absolute bottom-10 right-10 w-32 h-32 bg-blue-400 opacity-50 blur-xl rounded-full" variants={floatingShapess} initial="hidden" animate="animate"></motion.div>
       <motion.div className="absolute top-10 left-10 w-20 h-20 bg-purple-300 rotate-45 opacity-50" variants={floatingShapes} initial="hidden" animate="animate"></motion.div>
       <motion.div className="absolute bottom-10 right-10 w-20 h-20 bg-blue-300 opacity-50" variants={floatingShapes} initial="hidden" animate="animate"></motion.div>
       <motion.div className="absolute top-1/3 left-1/4 w-28 h-14 bg-green-300 opacity-50" variants={floatingShapes} initial="hidden" animate="animate"></motion.div>
@@ -31,40 +46,60 @@ const FeaturesSection = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 max-w-6xl mx-auto relative z-10">
         {/* Feature Item 1 */}
-        <div className="flex flex-col items-center relative">
-          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-lg rounded-full mb-6 relative z-10">
-            <FaThumbsUp className="text-purple-600 text-5xl" />
+        <motion.div 
+          className="flex flex-col items-center relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-xl rounded-full mb-6 relative z-10">
+            <FaStar className="text-yellow-500 text-5xl" />
           </div>
-          <h3 className="text-3xl font-bold text-gray-800">Highly Rated</h3>
-          <p className="text-gray-600 mt-4 text-lg">Stormlikes is a top-rated marketing platform for all things Instagram.</p>
-        </div>
+          <h3 className="text-3xl font-bold">Top-Rated Services</h3>
+          <p className="text-gray-300 mt-4 text-lg">We are a highly trusted platform with excellent customer reviews.</p>
+        </motion.div>
 
         {/* Feature Item 2 */}
-        <div className="flex flex-col items-center relative">
-          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-lg rounded-full mb-6 relative z-10">
-            <FaClock className="text-purple-600 text-5xl" />
+        <motion.div 
+          className="flex flex-col items-center relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-xl rounded-full mb-6 relative z-10">
+            <FaRocket className="text-blue-500 text-5xl" />
           </div>
-          <h3 className="text-3xl font-bold text-gray-800">Immediate Start</h3>
-          <p className="text-gray-600 mt-4 text-lg">Delivery starts within seconds of you placing the order.</p>
-        </div>
+          <h3 className="text-3xl font-bold">Instant Boost</h3>
+          <p className="text-gray-300 mt-4 text-lg">Experience rapid growth with our fast and effective delivery system.</p>
+        </motion.div>
 
         {/* Feature Item 3 */}
-        <div className="flex flex-col items-center relative">
-          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-lg rounded-full mb-6 relative z-10">
-            <FaTruck className="text-purple-600 text-5xl" />
+        <motion.div 
+          className="flex flex-col items-center relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-xl rounded-full mb-6 relative z-10">
+            <FaShieldAlt className="text-green-500 text-5xl" />
           </div>
-          <h3 className="text-3xl font-bold text-gray-800">Delivery Tracking</h3>
-          <p className="text-gray-600 mt-4 text-lg">Our system allows you to follow delivery progress and see order status in real-time.</p>
-        </div>
+          <h3 className="text-3xl font-bold">Secure & Reliable</h3>
+          <p className="text-gray-300 mt-4 text-lg">We prioritize your security with a fully encrypted process.</p>
+        </motion.div>
 
         {/* Feature Item 4 */}
-        <div className="flex flex-col items-center relative">
-          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-lg rounded-full mb-6 relative z-10">
-            <FaQuestionCircle className="text-purple-600 text-5xl" />
+        <motion.div 
+          className="flex flex-col items-center relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <div className="w-32 h-32 flex items-center justify-center bg-white shadow-xl rounded-full mb-6 relative z-10">
+            <FaHeadset className="text-purple-500 text-5xl" />
           </div>
-          <h3 className="text-3xl font-bold text-gray-800">Professional Support</h3>
-          <p className="text-gray-600 mt-4 text-lg">Contact us any time and expect a helpful response.</p>
-        </div>
+          <h3 className="text-3xl font-bold">24/7 Support</h3>
+          <p className="text-gray-300 mt-4 text-lg">Our team is available round the clock to assist you.</p>
+        </motion.div>
       </div>
     </section>
   );
