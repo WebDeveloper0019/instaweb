@@ -10,9 +10,78 @@ p ,.btnn,.nav-font-text,body{
     font-family: 'Changa', sans-serif;
     font-weight: 800;
   }
+  /* h1, h2, h3 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 400;
+  }
+  
+   */
   
   body{
     background-color: #211C84;
   }
 
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.dark-brown{
+  color: #403834;
+}
+.brown-color{
+  color: #7e6b50;
+}
+
+@media (max-width: 487px) { /* Applies to screens smaller than 640px (mobile) */
+  .state_icons,.state_icons1,.state_icons2{
+    padding: 5px 10px;
+    font-size: 10px;
+    /* left: 10px;
+    top: 10px; */
+  }
+  .state_icons1{
   
+    right: 15px;
+    /* top: 10px; */
+  }
+  .state_icons{
+    left:30px;
+  }
+  .hero_section_padding{
+    padding-bottom:50px;
+  }
+  .padding_service_section{
+    padding:30px;
+  }
+  .superCharge_font{
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  .Boost_social{
+    padding: 0 40px 40px 40px;
+  }
+  .grid_change{
+    display: block;
+  }
+  .grid_child_change,.grid_feature_image{
+    padding: 10px;
+  }
+  .grid_feature_image{
+    padding: 30px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .mobile-menu {
+    display: block; /* Ensure it's displayed only on mobile */
+  }
+  
+  .desktop-menu {
+    display: none; /* Hide desktop menu on mobile */
+  }
+
+  
+
+  /* Additional styles for mobile-specific navigation */
+}

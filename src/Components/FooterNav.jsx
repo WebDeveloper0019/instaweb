@@ -9,6 +9,7 @@ const FooterNav = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500 opacity-10 blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+        
         {/* Logo & About */}
         <div>
           <h2 className="text-3xl font-bold tracking-wide text-white">FansFlares</h2>
@@ -28,8 +29,8 @@ const FooterNav = () => {
               { name: "Instagram Likes", path: "/buy-instagram-likes" },
               { name: "Instagram Views", path: "/buy-instagram-views" },
               { name: "Instagram Followers", path: "/buy-instagram-followers" },
-              { name: "Automatic Services", path: "/buy-automatic-services" },
-              { name: "Premium Services", path: "/buy-premium-services" },
+              { name: "Automatic Likes", path: "/buy-automatic-instagram-likes" },
+              { name: "Automatic Views", path: "/buy-automatic-instagram-views" },
             ].map((service, index) => (
               <li key={index}>
                 <Link
@@ -45,18 +46,37 @@ const FooterNav = () => {
           </ul>
         </div>
 
-        {/* Company Info */}
+        {/* Latest Articles */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">
-            Company
+            Our Latest Articles
+          </h3>
+          <ul className="text-sm space-y-3">
+            {[
+              { title: "Start a Business Today", date: "March 28, 2020" },
+              { title: "Productivity in Life", date: "March 24, 2020" },
+              { title: "Programming Languages", date: "March 20, 2020" },
+            ].map((article, index) => (
+              <li key={index}>
+                {article.title} <br />
+                <span className="text-red-500 text-xs">{article.date}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Resources */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">
+            Resources
           </h3>
           <ul className="space-y-3">
             {[
-              { name: "About Us", path: "/about" },
-              { name: "Contact", path: "/contact" },
-              { name: "FAQs", path: "/faqs" },
-              { name: "Privacy Policy", path: "/privacy-policy" },
+              { name: "Blog", path: "/blog" },
+              { name: "Press", path: "/press" },
+              { name: "Support", path: "/support" },
               { name: "Terms of Service", path: "/terms-of-service" },
+              { name: "Privacy Policy", path: "/privacy-policy" },
             ].map((item, index) => (
               <li key={index}>
                 <Link

@@ -1,12 +1,13 @@
 import React from 'react'
-import FAQSection from '../Components/FaqSection'
-import Testimonials from '../Components/Testimonials'
-import AvailableOn from '../Components/AvailableOn'
-import WhyFansFlares from '../Components/WhyFansFlares'
-import HeroSection from '../Components/HeroSection '
-import StatsSection from '../Components/StatsSection '
-import FeaturesSection from '../Components/FeaturesSection'
-import ServicesSection from '../Components/ServicesSection'
+import FAQSection from '../Components/HomePage/FAQSection'
+import Testimonials from '../Components/HomePage/Testimonials'
+import AvailableOn from '../Components/HomePage/AvailableOn'
+import WhyFansFlares from '../Components/HomePage/WhyFansFlares'
+import HeroSection from '../Components/HomePage/HeroSection '
+import StatsSection from '../Components/HomePage/StatsSection'
+import FeaturesSection from '../Components/HomePage/FeaturesSection'
+import ServicesSection from '../Components/HomePage/ServicesSection'
+import Popup from './Popup'
 
 const HomeLayout = () => {
   return (
